@@ -1,0 +1,87 @@
+<extend name="Public/base" />
+<!-- add css 属性 -->
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/User/personal.css">
+</block>
+<block name="body">
+ <div style="margin-left:18%;">
+	 <div class="row" style="width:100%">
+		  <!-- 导航列表 -->
+		  <div class="col-lg-12" >
+		    <h1>Lance Blog <small>个人中心</small></h1>
+		    <ol class="breadcrumb" >
+		      <li class="active"><i class="fa fa-dashboard"></i>个人中心</li>
+		    </ol>
+		  </div>
+
+          <!-- 个人中心 -->
+           <div class="bodyset" style="position: relative;">
+
+               <div class="leftset" style="position: absolute;">
+                   <div><a href="#"><img src="__IMG__/image.jpg" height="150px" width="150px"></a>
+                   </div>
+                   <div class="managerset">
+                       <span><a href="#" id="eduit">编辑</a> | <a href="#">查看</a></span>
+                   </div>
+               </div>
+               
+               <div class="rightset" style="position: absolute;">
+                  <form action="__URL__/modify_user_detail" method="post" id="form">
+                    <div class="form-group">
+                        <label>昵&nbsp;&nbsp;&nbsp;称: </label>
+                        <p class="user_detail">{$data.nicname}</p>
+                        <input class="form-control" name="nicname" id="name" value="{$data.nicname}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>家&nbsp;&nbsp;&nbsp;乡: </label>
+                        <p class="user_detail">{$data.hometown}</p>
+                        <input class="form-control" name="hometown" id="home" value="{$data.hometown}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>现居地:</label>
+                        <p class="user_detail">{$data.nowhome}</p>
+                        <input class="form-control" name="nowhome" id="nowlive" value="{$data.nowhome}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>兴&nbsp;&nbsp;&nbsp;趣: </label>
+                        <p class="user_detail">{$data.intreastthing}</p>
+                        <input class="form-control" name="intreastthing" id="intrest" value="{$data.intreastthing}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>座右铭:</label>
+                        <p class="user_detail">{$data.lovemotto}</p>
+                        <textarea class="form-control" id="motto" name="lovemotto" rows="3" >{$data.lovemotto}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>简&nbsp;&nbsp;&nbsp;介:</label>
+                        <p class="user_detail">{$data.selfintroduction}</p>
+                        <textarea class="form-control" id="introduction" name="selfintroduction" rows="3">{$data.selfintroduction}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" style="margin-right:30%">确定</button>
+                    <button type="reset" class="btn btn-success">重 置</button>
+                  </form>
+               </div>
+
+           </div>
+
+	</div>
+ </div>
+	
+</block>
+<block name="script">
+	<script type="text/javascript" src="__JS__/Index/index.js"></script>
+    <script type="text/javascript" src="__JS__/user/persional.js"></script>
+    <!-- 左侧导航高亮 -->
+    <script type="text/javascript">
+        $(function() {
+            $("ul li").eq(0).removeClass('active');
+            $("ul li").eq(3).addClass('active');
+         });
+    </script>
+</block>

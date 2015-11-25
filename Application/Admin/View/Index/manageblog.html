@@ -1,0 +1,78 @@
+<extend name="Public/base" />
+<!-- add css 属性 -->
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/Index/index.css">
+</block>
+<block name="body">
+ <div style="margin-left:18%;">
+	 <div class="row" style="width:100%">
+		  <!-- 导航列表 -->
+		  <div class="col-lg-12" >
+		    <h1>Lance Blog <small>管理博客</small></h1>
+		    <ol class="breadcrumb" >
+		      <li class="active"><i class="fa fa-dashboard"></i>管理博客</li>
+		    </ol>
+		  </div>
+
+          <!-- 管理博客 -->
+            <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="thbgset">UID</th>
+                <th class="thbgset">标题</th>
+                <th class="thbgset">类别</th>
+                <th class="thbgset">发布人</th>
+                <th class="thbgset">发布日期</th>
+                <th class="thbgset">状态</th>
+                <th class="thbgset">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <notempty name="_list">
+                <volist name="_list" id="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.title}</td>
+                        <td>{$vo.category}</td>
+                        <td>{$vo.nicname}</td>
+                        <td>{$vo.public_date|date="Y-m-d H:i:s",###}</td>
+                        <td><eq name="vo.status" value="0">
+                            <a href="#"  value="{$vo.id}" class="public_artical" >公开</a>
+                            <else/>
+                            <a href="#" value="{$vo.id}" class="private_artical">私有</a>
+                            </eq>
+                        </td>
+                        <td> 
+                        <a href="__URL__/edit_blog/id/{$vo.id}">编辑</a><a href="#" value="{$vo.id}" class="delete_artical">删除</a>
+                        </td>
+                    </tr>
+                </volist>
+                <else/>
+                <td colspan="10" class="text-center"> aOh! 暂时还没有内容! </td>
+            </notempty>
+            </tbody>
+        </table>
+        <input type="text" id="public" url="__URL__/public_blog" style="display:none">
+        <input type="text" id="private" url="__URL__/private_blog" style="display:none">
+        <input type="text" id="delete" url="__URL__/delete_blog" style="display:none">
+    </div>
+    <!-- 分页 -->
+    <div class="pageset">
+        {$page}
+    </div>
+	</div>
+ </div>
+	
+</block>
+<block name="script">
+	<script type="text/javascript" src="__JS__/Index/index.js"></script>
+    <script type="text/javascript" src="__JS__/Index/management.js"></script>
+	<!-- 左侧导航高亮 -->
+	<script type="text/javascript">
+        $(function() {
+            $("ul li").eq(0).removeClass('active');
+            $("ul li").eq(1).addClass('active');
+         });
+    </script>
+</block>

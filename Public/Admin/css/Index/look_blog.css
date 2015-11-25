@@ -1,0 +1,63 @@
+#titleset{
+	/* position: relative; */
+}
+
+#titleset h2{
+	text-align: center;
+	text-shadow: 5px 5px 5px #ff9900;
+}
+
+.leftset{
+	border:2px solid #a1a1a1;
+    padding:10px 40px; 
+    background:#FFFFFF;
+    width:100%;
+    border-radius:25px;
+    -moz-border-radius:25px; 老的 Firefox
+    position: relative;
+}
+
+.content{
+	margin-left: 8px;
+	margin-right: 8px;
+	/* position: absolute; */
+}
+
+.tages{
+	position: absolute;
+    margin-top: 10px;
+    margin-left: 20px; 
+}
+.lookcout{
+	position: absolute;
+    margin-top: 40px;
+    margin-left: 20px; 
+}
+.pusher{
+	position: absolute;
+    margin-top: 70px;
+    margin-left: 20px;
+}
+.pushdate{
+	position: absolute;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.afterartical{
+	position: absolute;
+	margin-left: 250px;
+	margin-top:10px; 
+}
+
+.nowartical{
+	position: absolute;
+	margin-left: 250px;
+	margin-top:50px;
+}
+.before{
+	position: absolute;
+	margin-left: 250px;
+	margin-top:90px;
+}
+

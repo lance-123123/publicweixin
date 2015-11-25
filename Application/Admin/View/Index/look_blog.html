@@ -1,0 +1,57 @@
+<extend name="Public/base" />
+<!-- add css 属性 -->
+<block name="style">
+	<link rel="stylesheet" type="text/css" href="__CSS__/Index/look_blog.css">
+</block>
+<block name="body">
+ <div style="margin-left:18%;">
+	 <div class="row" style="width:100%">
+		  <!-- 导航列表 -->
+		  <div class="col-lg-12" >
+		    <h1>Lance Blog <small>查看列表</small></h1>
+		    <ol class="breadcrumb" >
+		      <li class="active"><i class="fa fa-dashboard"></i><a href="__URL__/index">博客列表</a></li>
+		    </ol>
+		  </div>
+         <!-- 博客内容 -->
+        <div id="titleset">
+            <h2>{$data.title}</h2>
+          
+          <!-- top div 中信息设置 -->
+          <div class="leftset">
+             <img src="__UPLOADS__/{$data.blog_photo}" width="350px" height="150px">
+             
+             <span class="tages">标签 【<a href="#">{$data.category}</a>】</span>
+             
+             <span class="lookcout">浏览量【<a href="#">{$data.browsenumber}</a>】</span>
+             
+             <span class="pusher">发布人【<a href="#">{$data.nicname}</a>】</span>
+             
+             <span class="pushdate">发布日期【 <a href="#">{$data.public_date|date="Y-m-d",###}</a> 】</span>
+             <!-- 上一篇 -->
+             <if condition="$arr.last_id eq null "><span class="afterartical"> 上一篇【<a href="#">完</a>】</span>
+                 <else /> <span class="afterartical">上一篇 【<a href="__URL__/look_blog/id/{$arr.last_id}">{$arr.last_title}</a>】</span>
+             </if>
+             <!-- 当前篇 -->
+             <span class="nowartical">当前篇 【<a href="#">{$data.title}</a>】
+             </span>
+              <!-- 下一篇 -->
+              <if condition="$arr.after_id eq null "><span class="before">下一篇 【<a href="#">完</a>】</span></span>
+                 <else /> <span class="before">下一篇 【<a href="__URL__/look_blog/id/{$arr.after_id}">{$arr.after_title}</a>】</span>
+             </if>
+
+             <!-- 博客内容显示 -->
+          </div>
+            <div class="content">
+                {$data.blog_content|htmlspecialchars_decode}
+            </div>
+
+        </div>   
+         
+	</div>
+ </div>
+	
+</block>
+<block name="script">
+	<script type="text/javascript" src="__JS__/Index/look_blog.js"></script>
+</block>

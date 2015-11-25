@@ -1,0 +1,35 @@
+h1{
+	 margin-top: 20px;
+	 text-align: center;
+	 font-weight:bold;
+	 text-shadow: 5px 5px 5px #ffffff;
+}
+
+
+
+#content{
+	border:2px solid #a1a1a1;
+    padding:10px 40px; 
+    background: #dddddd;
+    width:35%;
+    height:330px; 
+    border-radius:25px;
+    -moz-border-radius:25px; 老的 Firefox
+    -moz-box-shadow:10px 10px 5px #000000;老版Firefox
+	box-shadow: 10px 10px 5px #000000;
+	 margin-left: 33%; 
+}
+
+#message{
+	margin-bottom: 15%;
+}
+.btn{
+	width: 677%;
+	height: 50px;
+	/* border-radius:10px;
+	    -moz-border-radius:10px; 老的 Firefox */
+}
+.form-control{
+	height: 50px;
+}
+
