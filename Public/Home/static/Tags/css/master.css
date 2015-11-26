@@ -1,8 +1,0 @@
-@charset "UTF-8";
-#wrapper ul, #wrapper li {
-    list-style:disc;
-}
-#wrapper {
-    background:#fff;
-    width:560px;
-}

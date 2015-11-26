@@ -2,7 +2,7 @@
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2006-2014 http://thinkphp.cn All rights reserved.
+// | Copyright (c) 2006-2013 http://thinkphp.cn All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
@@ -38,6 +38,7 @@ class RestController extends Controller {
      * @access public
      */
     public function __construct() {
+        parent::__construct();
         // 资源类型检测
         if(''==__EXT__) { // 自动检测资源类型
             $this->_type   =  $this->getAcceptType();
@@ -56,8 +57,6 @@ class RestController extends Controller {
             $method = $this->defaultMethod;
         }
         $this->_method = $method;
-        
-        parent::__construct();
     }
 
     /**
@@ -200,7 +199,7 @@ class RestController extends Controller {
             $data = serialize($data);
         }// 默认直接输出
         $this->setContentType($type);
-        //header('Content-Length: ' . strlen($data));
+        header('Content-Length: ' . strlen($data));
         return $data;
     }
 
